@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// cypress/support/commands.js
+
+Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) => {
+    if (name) cy.get('input[placeholder="Name"]').type(name);
+    if (email) cy.get('input[placeholder="Email"]').type(email);
+    if (phone) cy.get('input[placeholder="Phone"]').type(phone);
+    if (subject) cy.get('input[placeholder="Subject"]').type(subject);
+    if (message) cy.get('[data-testid="ContactDescription"]').type(message);
+});
+
+Cypress.Commands.add('submitContactForm', () => {
+    cy.get('#submitContact').click();
+});
+
+Cypress.Commands.add('validateErrorMessages', (messages) => {
+    messages.forEach((msg) => {
+        cy.get('p').contains(msg);
+    });
+});
