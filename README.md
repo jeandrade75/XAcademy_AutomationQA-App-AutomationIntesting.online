@@ -48,7 +48,7 @@ Ensures that the hotel description on the homepage matches the expected text.
 
 - Contact Form Submission:
 Fills out the contact form with valid data and submits it.
- Validates that the form submission triggers the correct API request using cy.intercept.
+Validates that the form submission triggers the correct API request using cy.intercept.
 
 - Form Validation Testing:
 Tests the form validation by attempting to submit the form with invalid or missing data.
@@ -59,7 +59,7 @@ This project includes custom Cypress commands to streamline repetitive tasks, su
 
 ## Example Custom Command
 javascript
-Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) => {
+### Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) => {
 ###    cy.get('[data-test=name]').type(name);
 ###    cy.get('[data-test=email]').type(email);
 ###    cy.get('[data-test=phone]').type(phone);
@@ -68,9 +68,9 @@ Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) =
 ### });
 
 ## Folder Structure
-cypress/integration: Contains the test cases.
-cypress/support: Contains custom commands and other support files.
-cypress/fixtures: Contains test data and other fixture files.
+- cypress/integration: Contains the test cases.
+- cypress/support: Contains custom commands and other support files.
+- cypress/fixtures: Contains test data and other fixture files.
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request.
