@@ -22,21 +22,21 @@ This project automates various test scenarios for the Automation In Testing webs
 - To run this project locally, you'll need to have Node.js and npm installed on your machine.
 - Clone the repository:
 
-git clone <repository-url>
-cd <repository-directory>
+### git clone <repository-url>
+### cd <repository-directory>
 
 Install the dependencies:
-npm install
+### npm install
 
 ## Running Tests
 - You can run the tests using Cypress UI or in the headless mode.
 - Running Tests in Cypress UI
-npx cypress open
+### npx cypress open
 
 This will open the Cypress Test Runner, where you can select the test to run.
 
 - Running Tests in Headless Mode
-npx cypress run
+### npx cypress run
 
 This will run all tests in the command line.
 
@@ -60,12 +60,12 @@ This project includes custom Cypress commands to streamline repetitive tasks, su
 ## Example Custom Command
 javascript
 Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) => {
-    cy.get('[data-test=name]').type(name);
-    cy.get('[data-test=email]').type(email);
-    cy.get('[data-test=phone]').type(phone);
-    cy.get('[data-test=subject]').type(subject);
-    cy.get('[data-test=message]').type(message);
-});
+###    cy.get('[data-test=name]').type(name);
+###    cy.get('[data-test=email]').type(email);
+###    cy.get('[data-test=phone]').type(phone);
+###    cy.get('[data-test=subject]').type(subject);
+###    cy.get('[data-test=message]').type(message);
+### });
 
 ## Folder Structure
 cypress/integration: Contains the test cases.
