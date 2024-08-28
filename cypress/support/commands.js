@@ -26,20 +26,16 @@
 
 // cypress/support/commands.js
 
-Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) => {
-    if (name) cy.get('input[placeholder="Name"]').type(name);
-    if (email) cy.get('input[placeholder="Email"]').type(email);
-    if (phone) cy.get('input[placeholder="Phone"]').type(phone);
-    if (subject) cy.get('input[placeholder="Subject"]').type(subject);
-    if (message) cy.get('[data-testid="ContactDescription"]').type(message);
-});
-
-Cypress.Commands.add('submitContactForm', () => {
+Cypress.Commands.add('validateEmptyFormSubmission', () => {
     cy.get('#submitContact').click();
+    cy.get('.alert').should('be.visible');
+    cy.get('p').contains('Subject must be between 5 and 100 characters.');
+    cy.get('p').contains('Subject may not be blank');
+    cy.get('p').contains('Name may not be blank');
+    cy.get('p').contains('Message must be between 20 and 2000 characters.');
+    cy.get('p').contains('Message may not be blank');
+    cy.get('p').contains('Email may not be blank');
+    cy.get('p').contains('Phone may not be blank');
+    cy.get('p').contains('Phone must be between 11 and 21 characters.');
 });
 
-Cypress.Commands.add('validateErrorMessages', (messages) => {
-    messages.forEach((msg) => {
-        cy.get('p').contains(msg);
-    });
-});
